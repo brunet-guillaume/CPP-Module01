@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrunet <gbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 09:56:16 by gbrunet           #+#    #+#             */
-/*   Updated: 2024/02/08 15:10:43 by gbrunet          ###   ########.fr       */
+/*   Created: 2024/02/08 15:08:57 by gbrunet           #+#    #+#             */
+/*   Updated: 2024/02/09 08:42:26 by gbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-# include <iostream>
+# include "Weapon.hpp"
 
-class Zombie {
+class HumanA {
 	private:
 		std::string	name;
+		Weapon		&weapon;
 
 	public:
-		Zombie(void);
-		Zombie(std::string name);
-		~Zombie(void);
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
 
-		void	announce(void);
-		void	set_name(std::string name);
+		void	attack(void);
 };
-
-Zombie	*zombieHorde(int N, std::string name);
 
 #endif
