@@ -6,11 +6,14 @@
 /*   By: gbrunet <gbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 13:51:10 by gbrunet           #+#    #+#             */
-/*   Updated: 2024/02/09 14:41:57 by gbrunet          ###   ########.fr       */
+/*   Updated: 2024/02/19 12:14:40 by gbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <cstring>
 #include "EditFile.hpp"
 
 EditFile::EditFile(std::string name, std::string from, std::string to): file_name(name), replace_from(from), replace_to(to) {
@@ -28,8 +31,13 @@ EditFile::~EditFile() {
 }
 
 int	EditFile::read_in(void) {
-	char	c;
+	char		c;
+	struct stat	type;
 
+	if (stat(this->get_file_name().c_str(), &type) == 0 && type.st_mode & S_IFDIR) {
+		std::cerr << "\e[0;31m'" << this->file_name << "': is a directory\e[0m" << std::endl << std::endl;
+		return (FAILURE);
+	}
 	this->file_in.open(file_name.c_str());
 	if (!this->file_in.good()) {
 		std::cerr << "\e[0;31m'" << this->file_name << "': unable to open file\e[0m" << std::endl << std::endl;

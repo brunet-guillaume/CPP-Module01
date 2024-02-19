@@ -6,7 +6,7 @@
 /*   By: gbrunet <gbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:39:49 by gbrunet           #+#    #+#             */
-/*   Updated: 2024/02/09 14:41:37 by gbrunet          ###   ########.fr       */
+/*   Updated: 2024/02/19 11:57:51 by gbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv) {
 	if (argc != 4) {
 		std::cerr << "ex04: wrong number of arguments" << std::endl;
 		std::cerr << "./ex04 <filename> \"string to replace\" \"replacement string\"" << std::endl;
+		return (FAILURE);
 	}
 
 	file = new EditFile(argv[1], argv[2], argv[3]);
