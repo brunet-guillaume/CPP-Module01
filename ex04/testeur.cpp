@@ -6,7 +6,7 @@
 /*   By: gbrunet <gbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 14:03:04 by gbrunet           #+#    #+#             */
-/*   Updated: 2024/02/19 11:57:13 by gbrunet          ###   ########.fr       */
+/*   Updated: 2024/02/19 13:26:15 by gbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int	main(void) {
 	exec("./ex04 ./tests/file6 is ARE");
 	getchar();
 	exec("./ex04 ./tests folder Rien");
+	getchar();
+	exec("./ex04 ./tests/file7 outFolder_file7.replace exist");
 	return (0);
 }
