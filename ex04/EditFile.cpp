@@ -6,7 +6,7 @@
 /*   By: gbrunet <gbrunet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 13:51:10 by gbrunet           #+#    #+#             */
-/*   Updated: 2024/02/19 13:27:06 by gbrunet          ###   ########.fr       */
+/*   Updated: 2024/02/19 15:51:52 by gbrunet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	EditFile::write_out(void) {
 		std::cout << "\e[0;33mContent :\n\e[0;36m";
 		for (int i = 0; i < (int)this->content.length(); i++) {
 			pos = this->content.find(this->replace_from, i);
-			if (pos == i) {
+			if (pos == i && this->replace_from.length() > 0) {
 				std::cout << this->replace_to;
 				this->file_out << this->replace_to;
 				i += this->replace_from.length() - 1;
